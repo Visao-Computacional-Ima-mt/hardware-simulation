@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>via_gazebo</name>
+  <version>0.1.0</version>
+  <description>The via_gazebo package</description>
+
+  <maintainer email="vivian@todo.todo">vivian</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>gazebo_ros</build_depend>
+  <exec_depend>via_description</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>via_control</exec_depend>
+
+</package>

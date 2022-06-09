@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Arguments -->
+  <arg name="rvizconfig" default="$(find via_control)/rviz/control.rviz" />
+  
+  <!-- Load controller configuration -->
+  <rosparam command="load" file="$(find via_control)/config/control.yaml" />
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
+
+  <!-- Spawn controllers -->
+  <node name="via_controller_spawner" pkg="controller_manager" type="spawner"
+        args="via_joint_publisher via_velocity_controller"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+  <!-- GUI plugin for steering a robot using Twist messages -->
+  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+    <param name="default_topic" value="/via_velocity_controller/cmd_vel"/>
+  </node>
+
+</launch>
+
+
