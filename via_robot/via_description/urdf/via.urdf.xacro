@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="via" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Include gabezo tags for simulation -->
+  <xacro:include filename="$(find via_description)/urdf/via.gazebo.xacro"/>
+  
+  <!-- Dummy base link, because KDL cannot have inertia on the base link -->
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.752" rpy="0 0 0"/>
+  </joint>
+
+  <!-- base_link -->
+  <link name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00038001 0.00058196 0.092591"
+        rpy="0 0 0" />
+      <mass
+        value="114.07" />
+      <inertia
+        ixx="5.9365"
+        ixy="5.8437E-06"
+        ixz="0.0043726"
+        iyy="2.3441"
+        iyz="-4.9659E-05"
+        izz="5.7375" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://via_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.18431 0.35686 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://via_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- front right (FR) wheel -->
+  <link name="wheel_FR">
+    <inertial>
+      <origin
+        xyz="-0.042842 0.00029981 8.7423E-05"
+        rpy="0 0 0" />
+      <mass
+        value="5.9259" />
+      <inertia
+        ixx="0.24268"
+        ixy="-4.2738E-07"
+        ixz="-1.3567E-07"
+        iyy="0.12284"
+        iyz="8.7511E-05"
+        izz="0.12258" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://via_description/meshes/link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://via_description/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_FR_joint" type="continuous">
+    <origin
+      xyz="0.49764 -0.87164 -0.44629"
+      rpy="0 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_FR" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      effort="100"
+      velocity="10" />
+  </joint>
+  
+  <!-- rear right (RR) wheel -->
+  <link name="wheel_RR">
+    <inertial>
+      <origin
+        xyz="-0.042842 0.00030672 5.8802E-05"
+        rpy="0 0 0" />
+      <mass
+        value="5.9259" />
+      <inertia
+        ixx="0.24268"
+        ixy="-4.3763E-07"
+        ixz="-9.5519E-08"
+        iyy="0.12286"
+        iyz="6.1435E-05"
+        izz="0.12257" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://via_description/meshes/link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://via_description/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_RR_joint" type="continuous">
+    <origin
+      xyz="-0.50079 -0.87164 -0.44516"
+      rpy="0 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_RR" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      effort="100"
+      velocity="10" />
+  </joint>
+
+  <!-- front left (FL) wheel -->
+  <link name="wheel_FL">
+    <inertial>
+      <origin
+        xyz="-0.042842 0.00029982 8.742E-05"
+        rpy="0 0 0" />
+      <mass
+        value="5.9259" />
+      <inertia
+        ixx="0.24268"
+        ixy="-4.2681E-07"
+        ixz="-1.361E-07"
+        iyy="0.12284"
+        iyz="8.7511E-05"
+        izz="0.12258" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://via_description/meshes/link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://via_description/meshes/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_FL_joint" type="continuous">
+    <origin
+      xyz="0.49764 0.8686 -0.44629"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_FL" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="100"
+      velocity="10" />
+  </joint>
+
+  <!-- rear left (RL) wheel -->
+  <link name="wheel_RL">
+    <inertial>
+      <origin
+        xyz="0.0428422513784806 0.000122790527358863 0.000287144158501174"
+        rpy="0 0 0" />
+      <mass
+        value="5.92586310686001" />
+      <inertia
+        ixx="0.242683290443851"
+        ixy="1.86464755942678E-07"
+        ixz="4.07982409284623E-07"
+        iyy="0.122606482428305"
+        iyz="0.000116179926304985"
+        izz="0.122818840646859" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"  
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://via_description/meshes/link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://via_description/meshes/link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_RL_joint" type="continuous">
+    <origin
+      xyz="-0.50079 0.8686 -0.44516"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_RL" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      effort="100"
+      velocity="10" />
+  </joint>
+
+</robot>

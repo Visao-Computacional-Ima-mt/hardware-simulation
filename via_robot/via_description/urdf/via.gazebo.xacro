@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<robot name="gpg3_sim" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Base_link -->
+  <gazebo reference="base_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <!-- RL wheel mechanical properties -->
+  <gazebo reference="wheel_RL">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.5</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <transmission name="wheel_RL_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="wheel_RL_motor">
+	  <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="wheel_RL_joint">
+	  <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <!-- FL wheel mechanical properties -->
+  <gazebo reference="wheel_FL">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.5</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <transmission name="wheel_FL_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="wheel_FL_motor">
+	  <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="wheel_FL_joint">
+	  <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <!-- RR wheel mechanical properties -->
+  <gazebo reference="wheel_RR">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.5</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <transmission name="wheel_RR_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="wheel_RR_motor">
+	  <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="wheel_RR_joint">
+	  <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <!-- FR wheel mechanical properties -->
+  <gazebo reference="wheel_FR">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.5</maxVel>
+    <fdir1>1 0 0</fdir1>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <transmission name="wheel_FR_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="wheel_FR_motor">
+	  <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="wheel_FR_joint">
+	  <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <!-- Gazebo plugin for ROS Control -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    </plugin>
+  </gazebo>
+
+</robot>

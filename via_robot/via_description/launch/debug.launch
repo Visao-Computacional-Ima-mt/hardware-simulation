@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- Configurations (can also be set as argument) -->
+  <arg name="rvizconfig"  default="$(find via_description)/rviz/urdf.rviz" />
+  
+  <!-- Load robot description -->
+  <include file="$(find via_description)/launch/load.launch" />
+  
+  <!-- Open joint_state_publisher with GUI for debugging -->
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  
+  <!-- Publish robot state (joints) as TF -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  
+  <!-- Open Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  
+</launch>

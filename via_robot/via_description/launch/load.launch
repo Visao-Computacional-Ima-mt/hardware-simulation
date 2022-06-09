@@ -1,0 +1,6 @@
+<launch>
+  
+  <!-- Run xacro script to generate and upload VIA description -->  
+  <param name="robot_description" command="$(find xacro)/xacro $(find via_description)/urdf/via.urdf.xacro"/>
+
+</launch>
