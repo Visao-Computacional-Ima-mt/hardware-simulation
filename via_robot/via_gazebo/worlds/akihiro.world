@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<sdf version='1.5'>
+     <world name='default'>
+
+		<!-- When Gazebo is loaded zoom into where the robot spawns -->
+          <gui>
+               <camera name="user_camera">
+                    <pose>1.953330 -2.960521 2.117045 0 0.411456 1.892190</pose>
+               </camera>
+          </gui>
+
+		<!-- Initialize some lighting condtions -->
+          <light name='sundir' type='directional'>
+               <cast_shadows>1</cast_shadows>
+               <pose>0 0 10 0 -0 0</pose>
+               <diffuse>1.0 0.95 0.8 1</diffuse>
+               <specular>0.7 0.7 0.7 1</specular>
+               <attenuation>
+                    <range>1000</range>
+                    <constant>0.9</constant>
+                    <linear>0.01</linear>
+                    <quadratic>0.001</quadratic>
+               </attenuation>
+               <direction>-0.3 0.4 -1.0</direction>
+          </light>
+
+		<!-- Configure ODE Physics engine parameters -->
+          <physics type="ode">
+               <max_step_size>0.005</max_step_size>
+               <real_time_factor>1.0</real_time_factor>
+               <real_time_update_rate>0.0</real_time_update_rate>
+               <gravity>0 0 -9.8</gravity>
+          </physics>
+
+		<!-- Configure all of the scene parameters -->
+          <scene>
+			<!-- Use a blue sky with moving clouds  -->
+               <sky>
+                    <clouds>
+                         <speed>12</speed>
+                    </clouds>
+               </sky>
+			<!-- Show the grid on the floor -->
+               <grid>true</grid>
+          </scene>
+
+		<!-- Use the python-script generated heightmap model -->
+          <include>
+               <uri>model://heightmap_ground</uri>
+               <pose>0 0 0 0 0 0</pose>
+          </include>
+
+		<!-- Use an early-season crop plot model generated using python-script -->
+          <include>
+               <uri>model://small_corn_stalk_plot</uri>
+               <pose>0 0 0 0 0 -1.57</pose>
+          </include>
+
+          <!--
+          <include>
+               <uri>model://small_corn_stalk_plot</uri>
+               <pose>0.2 0 0 0 0 -1.57</pose>
+          </include>
+          -->
+          
+     </world>
+</sdf>

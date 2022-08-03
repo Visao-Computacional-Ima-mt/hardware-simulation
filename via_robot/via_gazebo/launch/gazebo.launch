@@ -9,11 +9,14 @@
   <arg name="verbose" default="false"/>
 
   <!-- World file -->
-  <arg name="world" default="empty"/>
+  <!-- <arg name="world" default="empty"/> -->
+  <arg name="world" default="farmsoil"/>
   <arg name="world_file" default="$(find via_gazebo)/worlds/$(arg world).world"/>
 
-  <!-- Robot parameters -->
+  <!-- Robot arguments -->
   <arg name="robot_model_name" default="via"/>
+	<arg name="use_rqt_steering" default="true" />
+  <arg name="enable_rviz" default="true" />
 
   <!-- Set the initial pose of the robot's main body -->
   <arg name="x"                                     default="0.0"/>
@@ -35,8 +38,7 @@
   </include>
 
   <!-- Load robot description for gazebo -->
-  <include file="$(find via_description)/launch/load.launch">
-  </include>
+  <include file="$(find via_description)/launch/load.launch"/>
 
   <!-- Spawn robot in Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
@@ -45,6 +47,13 @@
     output="screen"/>
 
   <!-- Spawn the controllers -->
-  <include file="$(find via_control)/launch/control.launch"></include>
+  <include file="$(find via_control)/launch/control.launch">
+    <arg name="use_rqt_steering" value="$(arg use_rqt_steering)" />
+		<arg name="enable_rviz" value="$(arg enable_rviz)" />
+  </include>
+
+	<!-- Launch EKF localization -->
+	<include file="$(find via_navigation)/launch/via_localization.launch"/>
+
 
 </launch>

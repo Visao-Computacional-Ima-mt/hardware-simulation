@@ -11,8 +11,10 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>gazebo_ros</build_depend>
-  <exec_depend>via_description</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
+
+	<exec_depend>via_description</exec_depend>
   <exec_depend>via_control</exec_depend>
+	<exec_depend>via_navigation</exec_depend>
 
 </package>
