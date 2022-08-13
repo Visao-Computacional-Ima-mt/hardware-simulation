@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Robot arguments -->
+  <arg name="use_map" default="true"/>
+	<arg name="enable_rviz" default="true" />
+	<arg name="rvizconfig_map" default="$(find via_navigation)/rviz/conf_map.rviz" />
+	<arg name="rvizconfig_odom" default="$(find via_navigation)/rviz/conf_odom.rviz" />
+
+	<!-- Launch EKF localization -->
+	<include file="$(find via_navigation)/launch/via_localization.launch"/>
+
+	<!-- Using pre-built map -->
+	<group if="$(arg use_map)">
+		<include file="$(find via_navigation)/launch/via_map.launch"/>
+		<include file="$(find via_navigation)/launch/via_move_map.launch"/>
+		<include file="$(find via_navigation)/launch/via_amcl.launch"/>
+		<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig_map)" if="$(arg enable_rviz)" />
+	</group>
+
+	<!-- Navigation without map, based only in odometry -->
+	<group unless="$(arg use_map)">
+		<include file="$(find via_navigation)/launch/via_move_odom.launch"/>
+		<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig_odom)" if="$(arg enable_rviz)" />
+	</group>  
+
+</launch>

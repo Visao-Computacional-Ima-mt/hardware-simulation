@@ -2,7 +2,7 @@ odom_frame: odom
 base_link_frame: base_footprint
 world_frame: odom
 
-two_d_mode: true
+#two_d_mode: true
 
 frequency: 50
 
@@ -24,7 +24,7 @@ imu0_config: [false, false, false,
               false, false, false]
 imu0_differential: true
 imu0_queue_size: 10
-imu0_remove_gravitational_acceleration: true
+#imu0_remove_gravitational_acceleration: true
 
 
 

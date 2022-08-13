@@ -305,10 +305,10 @@
   <joint name="laser_joint" type="fixed">
     <parent link="base_link"/>
     <child link="laser_frame"/>
-    <origin xyz="0.32 0.0 0.4" rpy="0 0 0"/>
+    <origin xyz="0.0 0.0 0.43" rpy="0 0 0"/>
   </joint>
 
-	<!-- IMU -->
+  <!-- IMU -->
   <joint name="imu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="imu_link"/>
@@ -327,9 +327,14 @@
     </visual>
   </link>
 
-  <!-- Realsense Camera -->
-  <xacro:sensor_d435 name="realsense_d435" topics_ns="realsense_d435" parent="base_link">
-    <origin xyz="0.3 0 0.5" rpy="0 0.7854 0"/>
+  <!-- Realsense Front Camera -->
+  <xacro:sensor_d435 name="front_camera" topics_ns="front_camera" parent="base_link">
+    <origin xyz="0.3 0 0.55" rpy="0 0.5236 0"/>
+  </xacro:sensor_d435>
+  
+    <!-- Realsense Back Camera -->
+  <xacro:sensor_d435 name="back_camera" topics_ns="back_camera" parent="base_link">
+    <origin xyz="-0.3 0 0.55" rpy="0 0.5236 3.1416"/>
   </xacro:sensor_d435>
 
 </robot>

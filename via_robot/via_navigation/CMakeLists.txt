@@ -14,7 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
 ###################################
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES pumaplus_navigation
+#  LIBRARIES via_navigation
 #  CATKIN_DEPENDS move_base robot_localization
 #  DEPENDS system_lib
 )

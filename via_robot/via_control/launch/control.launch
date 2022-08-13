@@ -3,8 +3,6 @@
 
   <!-- Arguments -->
   <arg name="use_rqt_steering" default="true" />
-  <arg name="enable_rviz" default="true" />
-	<arg name="rvizconfig" default="$(find via_control)/rviz/control.rviz" />
 
   <!-- Load controller configuration -->
   <rosparam command="load" file="$(find via_control)/config/control.yaml" />
@@ -16,9 +14,6 @@
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="50.0" />
   </node>
-
-  <!-- RViz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" if="$(arg enable_rviz)" />
 
   <!-- GUI plugin for steering a robot using Twist messages -->
   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" if="$(arg use_rqt_steering)">

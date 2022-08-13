@@ -42,11 +42,12 @@
   <!-- Load robot description for gazebo -->
   <include file="$(find via_description)/launch/load.launch"/>
 
-	<!-- Load navigation stack -->
-	<include file="$(find via_navigation)/launch/via_navigation.launch">
-		<arg name="use_map" value="$(arg use_map)"/>
-		<arg name="enable_rviz" default="$(arg enable_rviz)" />
-  </include>
+	<!-- Load map server, EKF localization and amcl -->
+	<arg name="rvizconfig_map" default="$(find via_navigation)/rviz/conf_map.rviz" />
+	<include file="$(find via_navigation)/launch/via_localization.launch"/>
+	<include file="$(find via_navigation)/launch/via_map.launch"/>
+	<include file="$(find via_navigation)/launch/via_amcl.launch"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig_map)" if="$(arg enable_rviz)" />
 
   <!-- Spawn robot in Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"

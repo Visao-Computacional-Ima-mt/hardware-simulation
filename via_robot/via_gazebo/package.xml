@@ -16,6 +16,5 @@
 	<exec_depend>via_description</exec_depend>
   <exec_depend>via_control</exec_depend>
 	<exec_depend>via_navigation</exec_depend>
-	<exec_depend>realsense_gazebo_plugin</exec_depend>
 
 </package>

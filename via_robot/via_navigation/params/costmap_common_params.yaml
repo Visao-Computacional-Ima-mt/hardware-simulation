@@ -1,0 +1,23 @@
+update_frequency: 5.0
+publish_frequency: 10.0
+
+obstacle_range: 5.0
+raytrace_range: 5.0
+inflation_radius: 1.0
+
+publish_voxel_map: true
+#transform_tolerance: 0.5
+meter_scoring: true
+
+footprint: [[-0.8125, -1.0], [-0.8125, 0.0], [-0.8125, 1.0], [0.8125, 1.0], [0.8125, 0.0], [0.8125, -1.0]]
+
+plugins:
+- {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
+- {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+
+obstacles_layer:
+  observation_sources: scan
+  scan: {sensor_frame: laser_frame, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+
+
