@@ -10,7 +10,7 @@
 
   <!-- World file -->
   <!--arg name="world" default="empty"/-->
-  <arg name="world" default="soyfarm"/>
+  <arg name="world" default="1CropWithStopSign"/>
   <!--arg name="world" default="farmWith1CropRow"/-->
   <arg name="world_file" default="$(find via_gazebo)/worlds/$(arg world).world"/>
 

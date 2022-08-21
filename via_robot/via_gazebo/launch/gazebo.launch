@@ -6,7 +6,7 @@
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  <arg name="verbose" default="false"/>
+  <arg name="verbose" default="true"/>
 
   <!-- World file -->
   <!--arg name="world" default="empty"/-->
@@ -59,9 +59,9 @@
     <arg name="use_rqt_steering" value="$(arg use_rqt_steering)" />
   </include>
   
-  <!-- Launch Agribot visual servoing -->
+  <!-- Launch Agribot visual servoing >
   <node pkg="visual_crop_row_navigation" type="agribot_vs_node" name="agribot_vs" output="screen">
 	  <rosparam command="load" file="$(find visual_crop_row_navigation)/params/agribot_vs_run.yaml"/>
-  </node>
+  </node-->
 
 </launch>
