@@ -3,7 +3,7 @@ publish_frequency: 10.0
 
 obstacle_range: 5.0
 raytrace_range: 5.0
-inflation_radius: 1.2
+inflation_radius: 0.8
 
 publish_voxel_map: true
 #transform_tolerance: 0.5
