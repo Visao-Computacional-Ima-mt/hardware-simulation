@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="gps" params="link joint parent height1 width lat_origin long_origin alt_origin">
+
+        <joint name="${joint}" type="fixed">
+            <axis xyz="0 1 0" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <parent link="${parent}" />
+            <child link="${link}" />
+          </joint>
+
+        <!-- Base Link -->
+        <link name="${link}">
+            <collision>
+            <origin xyz="0 0 ${height1/2}" rpy="0 0 0"/>
+            <geometry>
+                <box size="${width} ${width} ${width}"/>
+            </geometry>
+            </collision>
+
+            <visual>
+            <origin xyz="0 0 ${height1/2}" rpy="0 0 0"/>
+            <geometry>
+                <box size="${width} ${width} ${width}"/>
+            </geometry>
+            <material name="orange"/>
+            </visual>
+
+            <inertial>
+            <origin xyz="0 0 1" rpy="0 0 0"/>
+            <mass value="1"/>
+            <inertia
+                ixx="1.0" ixy="0.0" ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="1.0"/>
+            </inertial>
+        </link>
+
+
+        <material name="orange">
+            <color rgba="${255/255} ${108/255} ${10/255} 1.0"/>
+        </material>
+        
+        <gazebo reference="${link}">
+            <material>Gazebo/Orange</material>
+        </gazebo>
+
+        <gazebo>
+            <plugin name="gazebo_ros_gps" filename="libhector_gazebo_ros_gps.so">
+                <updateRate>1</updateRate>
+                <bodyName>${link}</bodyName>
+                <frameId>gps</frameId>
+                <topicName>/gps/fix</topicName>
+                <velocityTopicName>/gps/fix_velocity</velocityTopicName>
+                <referenceLatitude>${lat_origin}</referenceLatitude>
+                <referenceLongitude>${long_origin}</referenceLongitude>
+                <referenceHeading>900</referenceHeading>
+                <referenceAltitude>${alt_origin}</referenceAltitude>
+                <offset>0 0 0</offset>
+                <drift>0.001 0.001 0.001</drift>
+                <gaussianNoise>0.05 0.05 0.05</gaussianNoise>
+                <velocityDrift>0.001 0.001 0.001</velocityDrift>
+                <velocityGaussianNoise>0.5 0.5 0.5</velocityGaussianNoise>
+        <!--                <drift>0.001 0.001 0.001</drift>-->
+        <!--                <gaussianNoise>0.01 0.01 0.01</gaussianNoise>-->
+        <!--                <velocityDrift>0 0 0</velocityDrift>-->
+        <!--                <velocityGaussianNoise>0.05 0.05 0.05</velocityGaussianNoise>-->
+            </plugin>
+        </gazebo>
+    </xacro:macro>
+</robot>

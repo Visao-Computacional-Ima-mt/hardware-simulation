@@ -4,6 +4,7 @@
   <!-- Include gabezo tags for simulation -->
   <xacro:include filename="$(find via_description)/urdf/via.gazebo.xacro"/>
 	<xacro:include filename="$(find via_description)/urdf/d435/d435.urdf.xacro"/>
+  <xacro:include filename="$(find via_description)/urdf/gps/gps.xacro"/>
   
   <!-- Dummy base link, because KDL cannot have inertia on the base link -->
   <link name="base_footprint"/>
@@ -336,5 +337,8 @@
   <xacro:sensor_d435 name="back_camera" topics_ns="back_camera" parent="base_link">
     <origin xyz="-0.3 0 0.55" rpy="0 0.5236 3.1416"/>
   </xacro:sensor_d435>
+
+    <!-- GPS -->
+    <xacro:gps joint="joint_chassis_gps" link="link_gps" parent="base_link" height1="0.2" width="0.02" lat_origin="-22.004127333333333" long_origin="-47.93340416666667" alt_origin="829"/>
 
 </robot>

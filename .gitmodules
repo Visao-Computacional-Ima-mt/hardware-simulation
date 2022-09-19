@@ -1,0 +1,3 @@
+[submodule "hector_gazebo"]
+	path = hector_gazebo
+	url = https://github.com/tu-darmstadt-ros-pkg/hector_gazebo
