@@ -4,10 +4,12 @@ project(via_navigation)
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 
+
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
 	robot_localization
   roscpp
+  rospy
   message_generation
   std_msgs
 )
@@ -16,6 +18,9 @@ add_service_files(
    FILES
    RequestGoalPos.srv
 )
+
+catkin_python_setup()
+
 
 generate_messages(
   DEPENDENCIES
@@ -31,6 +36,14 @@ catkin_package(
 #   CATKIN_DEPENDS robot_localization std_msgs
 #  DEPENDS system_lib
 )
+
+###########
+## Python ##
+###########
+
+
+catkin_install_python(PROGRAMS scripts/move_xyindoor.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ###########
 ## Build ##
