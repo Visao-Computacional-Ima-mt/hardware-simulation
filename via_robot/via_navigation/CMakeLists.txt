@@ -6,7 +6,20 @@ project(via_navigation)
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
-  robot_localization
+	robot_localization
+  roscpp
+  message_generation
+  std_msgs
+)
+
+add_service_files(
+   FILES
+   RequestGoalPos.srv
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
 )
 
 ###################################
@@ -15,7 +28,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES via_navigation
-#  CATKIN_DEPENDS move_base robot_localization
+#   CATKIN_DEPENDS robot_localization std_msgs
 #  DEPENDS system_lib
 )
 
@@ -26,3 +39,13 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
+
+## Add executable file
+add_executable(send_navigation_goals
+	src/send_navigation_goals.cpp
+)
+add_dependencies(send_navigation_goals ${catkin_EXPORTED_TARGETS})
+target_link_libraries(send_navigation_goals
+	${catkin_LIBRARIES}
+)
+

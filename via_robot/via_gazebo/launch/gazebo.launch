@@ -3,14 +3,14 @@
   <!-- Gazebo arguments -->
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
-  <arg name="gui" default="true"/>
+  <arg name="gui" default="false"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  <arg name="verbose" default="true"/>
+  <arg name="verbose" default="false"/>
 
   <!-- World file -->
   <!--arg name="world" default="empty"/-->
-  <arg name="world" default="via_navtestmap"/>
+  <arg name="world" default="via_navtestmap4"/>
   <!--arg name="world" default="farmWith1CropRow"/-->
   <arg name="world_file" default="$(find via_gazebo)/worlds/$(arg world).world"/>
 
@@ -18,7 +18,7 @@
   <arg name="robot_model_name" default="via"/>
 	<arg name="use_rqt_steering" default="false" />
   <arg name="enable_rviz" default="true" />
-	<arg name="use_map" default="true" />
+	<arg name="use_map" default="false" />
 
   <!-- Set the initial pose of the robot's main body -->
   <arg name="x"                                     default="0.0"/>
@@ -50,7 +50,7 @@
 
   <!-- Spawn robot in Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
-    args="-param robot_description -urdf -model $(arg robot_model_name) -x $(arg x)
+    args="-param robot_description -urdf -model $(arg robot_model_name) -x $(arg x)3
       -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"
     output="screen"/>
 

@@ -23,5 +23,8 @@
 		<include file="$(find via_navigation)/launch/via_move_odom.launch"/>
 		<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig_odom)" if="$(arg enable_rviz)" />
 	</group>  
+	
+	<!-- Start node that publishes pre-defined goal positions -->
+	<node pkg="via_navigation" type="send_navigation_goals" name="send_navigation_goals" />
 
 </launch>

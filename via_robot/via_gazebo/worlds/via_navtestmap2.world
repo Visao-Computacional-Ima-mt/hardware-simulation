@@ -403,11 +403,11 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-            <link name='Wall_37'>
+      <link name='Wall_37'>
         <collision name='Wall_37_Collision'>
           <geometry>
             <box>
-              <size>8 0.15 2.5</size>
+              <size>5 0.15 2.5</size>
             </box>
           </geometry>
           <pose>0 0 1.25 0 -0 0</pose>
@@ -429,7 +429,7 @@
           <pose>0 0 1.25 0 -0 0</pose>
           <geometry>
             <box>
-              <size>8 0.15 2.5</size>
+              <size>5 0.15 2.5</size>
             </box>
           </geometry>
           <material>
@@ -451,10 +451,10 @@
       <static>1</static>
     </model>
     <state world_name='default'>
-      <sim_time>1241 335000000</sim_time>
-      <real_time>160 507001234</real_time>
-      <wall_time>1663270101 850608142</wall_time>
-      <iterations>160324</iterations>
+      <sim_time>2215 261000000</sim_time>
+      <real_time>840 654941293</real_time>
+      <wall_time>1663271943 285613488</wall_time>
+      <iterations>840243</iterations>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -505,13 +505,13 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='Wall_36'>
-          <pose>4.58154 -5.09965 0 0 -0 0</pose>
+          <pose>-0.418462 -5.09965 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='Wall_37'>
-          <pose>-4.91846 -0.59965 0 0 -0 1.57</pose>
+          <pose>-3.91846 -0.09965 0 0 -0 1.57</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -523,7 +523,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>27.7519 -1.00951 30.5549 0 0.873796 3.09619</pose>
+        <pose>23.0546 -1.69379 30.6096 0 0.985801 3.04019</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

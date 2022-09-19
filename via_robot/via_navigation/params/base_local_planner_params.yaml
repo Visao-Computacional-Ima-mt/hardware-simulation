@@ -14,9 +14,9 @@ TrajectoryPlannerROS:
 #	sim_time: 1.7
   meter_scoring: true
   heading_lookahead: 0.8
-  occdist_scale: 0.5
-  path_distance_bias: 0.8
-  goal_distance_bias: 1.0
+  occdist_scale: 5.0
+  path_distance_bias: 0.4
+  goal_distance_bias: 0.6
 
 
 
