@@ -44,10 +44,10 @@ user@pc: ~$ roslaunch gps_csv_rostopic gps.launch file:="gps.csv"
 
 It is important that the file is in CSV format, in other words, a "comma separated values" table and that the order of the coluns is the same as the default dataset, presented in the image bellow:
 
-![image]()
+![image](https://github.com/Visao-Computacional-Ima-mt/hardware-simulation/blob/main/gps_csv_rostopic/image/table.png)
 
 ## Other details
 
 If the Mapviz don't start with the all the topic coloured as the image bellow click in the "File" button on the left up corner and in "Open config", then select the "config2.mvc" file in the "mapviz" directory.
 
-![image]()
+![image](https://github.com/Visao-Computacional-Ima-mt/hardware-simulation/blob/main/gps_csv_rostopic/image/map.png)
