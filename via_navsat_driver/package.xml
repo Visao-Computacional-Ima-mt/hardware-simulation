@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>nmea_navsat_driver</name>
+  <name>via_navsat_driver</name>
   <version>0.6.1</version>
   <description>
     Package to parse NMEA strings and publish a very simple GPS message. Does not

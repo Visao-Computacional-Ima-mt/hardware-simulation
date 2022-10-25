@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   
   <!-- Run xacro script to generate and upload VIA description -->  

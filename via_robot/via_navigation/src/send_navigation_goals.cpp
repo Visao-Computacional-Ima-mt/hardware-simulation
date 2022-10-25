@@ -28,7 +28,7 @@ void initPoseMessages () {
 	goal2.header.stamp = ros::Time::now();
 	goal2.header.frame_id = "odom";
 
-	goal2.pose.position.x = -6.0;
+	goal2.pose.position.x = 4.0;
 	goal2.pose.position.y = -7.5;
 	goal2.pose.position.z = 0.0;
 
@@ -41,8 +41,8 @@ void initPoseMessages () {
 	goal3.header.stamp = ros::Time::now();
 	goal3.header.frame_id = "odom";
 
-	goal3.pose.position.x = 7.0;
-	goal3.pose.position.y = 0.0;
+	goal3.pose.position.x = -7.0;
+	goal3.pose.position.y = 7.0;
 	goal3.pose.position.z = 0.0;
 
 	goal3.pose.orientation.x = 0.0;

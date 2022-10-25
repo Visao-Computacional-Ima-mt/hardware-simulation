@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="file" default="Teste2.csv"/>
+
+  <!-- Publisher Node -->
+  <node pkg="gps_csv_rostopic" type="quality_code.py" name="GPS_reader_node" 
+            args="$(arg file)"/>
+
+  <!--  Include Mapviz -->
+  <include file="$(find mapviz)/launch/mapviz.launch" /> 
+
+</launch>

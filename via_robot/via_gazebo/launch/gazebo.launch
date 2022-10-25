@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
 
   <!-- Gazebo arguments -->
@@ -11,6 +12,7 @@
   <!-- World file -->
   <!--arg name="world" default="empty"/-->
   <arg name="world" default="via_navtestmap4"/>
+  <!--arg name="world" default="singlePillar"/-->
   <!--arg name="world" default="farmWith1CropRow"/-->
   <arg name="world_file" default="$(find via_gazebo)/worlds/$(arg world).world"/>
 

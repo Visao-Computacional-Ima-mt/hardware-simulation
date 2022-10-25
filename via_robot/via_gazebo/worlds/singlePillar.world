@@ -54,7 +54,7 @@
     
         <!-- Cylinder 2-->
     <model name='unit_cylinder2'>
-      <pose frame=''>2.5 3 0.75 0 -0 0</pose>
+      <pose frame=''>2 5 0.75 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
@@ -95,9 +95,9 @@
       </link>
     </model>
     
-            <!-- Cylinder 3>
+            <!-- Cylinder 3-->
     <model name='unit_cylinder3'>
-      <pose frame=''>8 -3 0.75 0 -0 0</pose>
+      <pose frame=''>5 0 0.75 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
@@ -136,11 +136,11 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
       </link>
-    </model-->
+    </model>
     
             <!-- Cylinder 4-->
     <model name='unit_cylinder4'>
-      <pose frame=''>8.5 3.5 0.75 0 -0 0</pose>
+      <pose frame=''>10 -5 0.75 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
@@ -183,7 +183,7 @@
     
             <!-- Cylinder 5-->
     <model name='unit_cylinder5'>
-      <pose frame=''>4.5 0 0.75 0 -0 0</pose>
+      <pose frame=''>10 5 0.75 0 -0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
