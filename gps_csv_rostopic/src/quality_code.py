@@ -9,7 +9,7 @@ import csv
 import os
 
 rows = []
-path = os.path.dirname(__file__).split("/")
+path = os.path.dirname(__file__).split("/") 
 path[-1] = 'csv'
 path = '/'.join(path)
 
@@ -19,12 +19,12 @@ if len(args) < 3:
 else:
     database = args[1]
 
-pub = rospy.Publisher('gps/fix', NavSatFix, queue_size=10)
+pub = rospy.Publisher('data/gps/fix', NavSatFix, queue_size=10)
 
-pub1 = rospy.Publisher('gps/DGPS/fix', NavSatFix, queue_size=10)
-pub2 = rospy.Publisher('gps/fRTK/fix', NavSatFix, queue_size=10)
-pub3 = rospy.Publisher('gps/simple/fix', NavSatFix, queue_size=10)
-pub4 = rospy.Publisher('gps/no_correction/fix', NavSatFix, queue_size=10)
+pub1 = rospy.Publisher('data/gps/DGPS/fix', NavSatFix, queue_size=10)
+pub2 = rospy.Publisher('data/gps/fRTK/fix', NavSatFix, queue_size=10)
+pub3 = rospy.Publisher('data/gps/simple/fix', NavSatFix, queue_size=10)
+pub4 = rospy.Publisher('data/gps/no_correction/fix', NavSatFix, queue_size=10)
 
 #pub_dop = rospy.Publisher('gps/no_correction/fix', NavSatFix, queue_size=10)
 

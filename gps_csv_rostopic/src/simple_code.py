@@ -19,7 +19,7 @@ if len(args) < 3:
 else:
     database = args[1]
 
-pub = rospy.Publisher('gps/fix', NavSatFix, queue_size=10)
+pub = rospy.Publisher('data/gps/fix', NavSatFix, queue_size=10)
 rospy.init_node('GPS_reader_node', anonymous=True)
 
 rospy.loginfo("Initialising...")

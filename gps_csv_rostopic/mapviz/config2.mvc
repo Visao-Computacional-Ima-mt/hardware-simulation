@@ -29,7 +29,7 @@ displays:
     config:
       visible: true
       collapsed: true
-      topic: /gps/fix
+      topic: /data/gps/fix
       color: "#000000"
       draw_style: lines
       position_tolerance: 0
@@ -39,7 +39,7 @@ displays:
     config:
       visible: true
       collapsed: true
-      topic: /gps/fRTK/fix
+      topic: /data/gps/fRTK/fix
       color: "#00ff00"
       draw_style: points
       position_tolerance: 0
@@ -49,7 +49,7 @@ displays:
     config:
       visible: true
       collapsed: true
-      topic: /gps/DGPS/fix
+      topic: /data/gps/DGPS/fix
       color: "#3465a4"
       draw_style: points
       position_tolerance: 0
@@ -59,7 +59,7 @@ displays:
     config:
       visible: true
       collapsed: true
-      topic: /gps/simple/fix
+      topic: /data/gps/simple/fix
       color: "#cc0000"
       draw_style: points
       position_tolerance: 0
