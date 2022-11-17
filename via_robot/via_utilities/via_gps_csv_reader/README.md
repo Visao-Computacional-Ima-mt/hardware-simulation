@@ -19,19 +19,19 @@ No Correction data: /gps/no_correction/fix
 To run the node one can use the following roslaunch command:
 
 ```console
-user@pc: ~$ roslaunch gps_csv_rostopic gps.launch
+user@pc: ~$ roslaunch via_gps_csv_reader gps.launch
 ```
 
 There is the option to run the node without the launch file as bellow
 
 ```console
-user@pc: ~$ rosrun gps_csv_rostopic quality_code.py
+user@pc: ~$ rosrun via_gps_csv_reader quality_code.py
 ```
 
 And there is a python script without the correction info in topics, just the data fix, to run uses the following command:
 
 ```console
-user@pc: ~$ rosrun gps_csv_rostopic simple_code.py
+user@pc: ~$ rosrun via_gps_csv_reader simple_code.py
 ```
 
 ## Change Dataset
@@ -39,15 +39,15 @@ user@pc: ~$ rosrun gps_csv_rostopic simple_code.py
 If one wants to uses the same package with others dataset in CSV previously generated, just upload the file in the "csv" directory and launch the node with argument as the same name of the file. For example, if the dataset file name is "gps.csv", uses the following command:
 
 ```console
-user@pc: ~$ roslaunch gps_csv_rostopic gps.launch file:="gps.csv"
+user@pc: ~$ roslaunch via_gps_csv_reader gps.launch file:="gps.csv"
 ```
 
 It is important that the file is in CSV format, in other words, a "comma separated values" table and that the order of the coluns is the same as the default dataset, presented in the image bellow:
 
-![image](https://github.com/Visao-Computacional-Ima-mt/hardware-simulation/blob/main/gps_csv_rostopic/image/table.png)
+![image](https://github.com/Visao-Computacional-Ima-mt/hardware-simulation/blob/main/via_gps_csv_reader/image/table.png)
 
 ## Other details
 
 If the Mapviz don't start with the all the topic coloured as the image bellow click in the "File" button on the left up corner and in "Open config", then select the "config2.mvc" file in the "mapviz" directory.
 
-![image](https://github.com/Visao-Computacional-Ima-mt/hardware-simulation/blob/main/gps_csv_rostopic/image/map.png)
+![image](https://github.com/Visao-Computacional-Ima-mt/hardware-simulation/blob/main/via_gps_csv_reader/image/map.png)

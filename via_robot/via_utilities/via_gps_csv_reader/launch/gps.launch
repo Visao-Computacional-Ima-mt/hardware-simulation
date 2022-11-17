@@ -6,7 +6,7 @@
   <arg name="file" default="Teste2.csv"/>
 
   <!-- Publisher Node -->
-  <node pkg="gps_csv_rostopic" type="quality_code.py" name="GPS_reader_node" 
+  <node pkg="via_gps_csv_reader" type="quality_code.py" name="GPS_reader_node" 
             args="$(arg file)"/>
 
   <!--  Include Mapviz -->
