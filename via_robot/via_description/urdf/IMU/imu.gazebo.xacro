@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <xacro:macro name="gazebo_imu" params="sensor_name topic_name">
+        <!-- IMU sensor -->
+        <gazebo reference="${sensor_name}_link">
+            <sensor type="imu" name="imu">
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            </sensor>
+            <material>Gazebo/Green</material>
+        </gazebo>
+        <!-- IMU plugin -->
+        <gazebo>
+            <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+            <alwaysOn>true</alwaysOn>
+            <bodyName>${sensor_name}_link</bodyName>
+            <frameName>${sensor_name}_link</frameName>
+            <topicName>/${topic_name}</topicName>
+            <serviceName>${sensor_name}_service</serviceName>
+            <gaussianNoise>0.0</gaussianNoise>
+            <updateRate>200</updateRate>
+            <imu>
+                <noise>
+                <type>gaussian</type>
+                <rate>
+                    <mean>0.0</mean>
+                    <stddev>2e-4</stddev>
+                    <bias_mean>0.0000075</bias_mean>
+                    <bias_stddev>0.0000008</bias_stddev>
+                </rate>
+                <accel>
+                    <mean>0.0</mean>
+                    <stddev>1.7e-2</stddev>
+                    <bias_mean>0.1</bias_mean>
+                    <bias_stddev>0.001</bias_stddev>
+                </accel>
+                </noise>
+            </imu>
+            </plugin>
+        </gazebo>
+    
+    </xacro:macro>
+</robot>

@@ -4,6 +4,8 @@
   <!-- Include gabezo tags for simulation -->
   <xacro:include filename="$(find via_description)/urdf/via.gazebo.xacro"/>
 	<xacro:include filename="$(find via_description)/urdf/d435/d435.urdf.xacro"/>
+  <xacro:include filename="$(find via_description)/urdf/LIDAR/lidar_hokuyo.urdf.xacro"/>
+  <xacro:include filename="$(find via_description)/urdf/IMU/imu.urdf.xacro"/>
   <xacro:include filename="$(find via_description)/urdf/gps/gps.xacro"/>
   
   <!-- Dummy base link, because KDL cannot have inertia on the base link -->
@@ -282,63 +284,22 @@
   </joint>
 
   <!--LIDAR Sensor-->
-  <link name="laser_frame">
-    <visual>
-      <geometry>
-        <mesh filename="package://via_description/meshes/sensors/hokuyo.dae"/>
-      </geometry>
-      <material name="red"/>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://via_description/meshes/sensors/hokuyo.dae"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <mass value="0.114" />
-      <origin xyz="0 0 -0.03" />
-      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-               iyy="0.001" iyz="0.0"
-               izz="0.001" />
-    </inertial>
-  </link>
-
-  <joint name="laser_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="laser_frame"/>
-    <origin xyz="0.0 0.0 0.43" rpy="0 0 0"/>
-  </joint>
+  <!-- <xacro:lidar laser="lidar_hokuyo"/> -->
 
   <!-- IMU -->
-  <joint name="imu_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="imu_link"/>
-    <origin xyz="0.06 0 0.35" rpy="0 0 0"/>
-  </joint>
-
-  <link name="imu_link">
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.1 0.1 0.05"/>
-      </geometry>
-      <material name="">
-				<color rgba="0.8 0.0 0.0 1.0"/>
-			</material>
-    </visual>
-  </link>
+  <xacro:imu sensor="imu"/>
 
   <!-- Realsense Front Camera -->
-  <xacro:sensor_d435 name="front_camera" topics_ns="front_camera" parent="base_link">
+  <!-- <xacro:sensor_d435 name="front_camera" topics_ns="front_camera" parent="base_link">
     <origin xyz="0.3 0 0.55" rpy="0 0.5236 0"/>
-  </xacro:sensor_d435>
+  </xacro:sensor_d435> -->
   
-    <!-- Realsense Back Camera -->
-  <xacro:sensor_d435 name="back_camera" topics_ns="back_camera" parent="base_link">
+  <!-- Realsense Back Camera -->
+  <!-- <xacro:sensor_d435 name="back_camera" topics_ns="back_camera" parent="base_link">
     <origin xyz="-0.3 0 0.55" rpy="0 0.5236 3.1416"/>
-  </xacro:sensor_d435>
+  </xacro:sensor_d435> -->
 
-    <!-- GPS -->
-    <xacro:gps joint="joint_chassis_gps" link="link_gps" parent="base_link" height1="0.2" width="0.02" lat_origin="-22.004127333333333" long_origin="-47.93340416666667" alt_origin="829"/>
+  <!-- GPS -->
+  <xacro:gps joint="joint_chassis_gps" link="link_gps" parent="base_link" height1="0.2" width="0.02" lat_origin="-22.004127333333333" long_origin="-47.93340416666667" alt_origin="829"/>
 
 </robot>

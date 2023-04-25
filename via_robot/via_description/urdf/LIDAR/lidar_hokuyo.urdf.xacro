@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!--File includes-->
+    <xacro:include filename="$(find via_description)/urdf/LIDAR/lidar_hokuyo.gazebo.xacro"/>
+    
+    <xacro:macro name="lidar" params="laser">
+    
+        <link name="${laser}_frame">
+            <visual>
+                <geometry>
+                    <mesh filename="package://via_description/meshes/sensors/hokuyo.dae"/>
+                </geometry>
+                <material name="red"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://via_description/meshes/sensors/hokuyo.dae"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.114" />
+                <origin xyz="0 0 -0.03" />
+                <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+                        iyy="0.001" iyz="0.0"
+                        izz="0.001" />
+            </inertial>
+        </link>
+
+        <joint name="${laser}_joint" type="fixed">
+            <parent link="base_link"/>
+            <child link="${laser}_frame"/>
+            <origin xyz="0.0 0.0 0.43" rpy="0 0 0"/>
+        </joint>
+    
+        <!-- Lidar Hokuyo Gazebo Plugin -->
+        <xacro:gazebo_lidar laser_name="${laser}" topic_name="scan"/>
+    
+    </xacro:macro>
+</robot>
