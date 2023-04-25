@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="gps_block">
+    <static>true</static>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+      <sensor name="gps" type="gps">
+        <update_rate>5.0</update_rate>
+        <plugin name="gps_plugin" filename="libgazebo_ros_gps.so">
+          <ros>
+            <namespace>/gps</namespace>
+            <argument>gps_data</argument>
+          </ros>
+          <gps>
+            <horizontal_position_stddev>0.2</horizontal_position_stddev>
+            <vertical_position_stddev>0.2</vertical_position_stddev>
+          </gps>
+        </plugin>
+      </sensor>
+    </link>
+  </model>
+</sdf>

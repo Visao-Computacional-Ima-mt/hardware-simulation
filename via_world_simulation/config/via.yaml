@@ -1,0 +1,45 @@
+row_length: 20            # Tamanho da Linha                 
+row_width: 0.75           # Distância entre Linhas
+rows_count: 12             # Número de Linhas
+
+row_segments:             # Tipo de linha -> straight (reta), curved (curvado), sincurved (senoidal), island (com uma ilha entre linhas)
+ - straight
+#  - island
+#  - sincurved
+
+## Caracteristicas da senoidal
+# row_segment_sincurved_offset_min: 0.3
+# row_segment_sincurved_offset_max: 0.5
+# row_segment_sincurved_length_min: 5.0
+# row_segment_sincurved_length_max: 5.0
+
+## Buracos/Falhas em cada linha (matriz com tamanho rows_count)
+# hole_prob: [0.1, 0.2, 0.2]             # Probabilidade de falhas por linha   
+# hole_size_max: [4, 2, 7]               # Tamanho das falhas por linha  
+
+# hole_prob: [0.2]             # Probabilidade de falhas por linha   
+# hole_size_max: [4]               # Tamanho das falhas por linha  
+
+hole_prob: [0.06, 0.06, 0.06, 0.05, 0.03, 0.02, 0.02, 0.01, 0.0, 0.0, 0.0, 0.0]
+hole_size_max: [10, 10, 9, 7, 4, 5, 5, 3, 2, 0, 0, 0]
+
+## Altura das plantas (não funcionou)
+# plant_height_min: 0.1
+# plant_height_max: 0.2
+
+# Terreno
+ground_resolution:    0.02   #0.02
+ground_headland:      2      #2.0
+
+ground_elevation_max: 0.0001 #0.2
+ground_ditch_depth:   0.1    #0.3
+
+## Distancia entre Plantas
+# plant_spacing_min: 0.4
+# plant_spacing_max: 0.6
+
+## Plantas daninhas espalhadas aleatoriamente entre as linhas -> Para essa simulação emula mudas de algodão
+weeds: 100             # Número de plantas daninhas
+#ghost_objects: true 
+weed_types:
+  - nettle            # Tipo de plantas daninhas    

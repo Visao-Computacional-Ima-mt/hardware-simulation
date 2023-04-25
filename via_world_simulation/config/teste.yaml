@@ -1,0 +1,21 @@
+row_length: 10
+rows_count: 3
+row_segments:
+  - straight
+# row_segments:
+#   - sincurved
+# row_segment_sincurved_offset_min: 0.3
+# row_segment_sincurved_offset_max: 1.1
+# row_segment_sincurved_length_min: 10.0
+# row_segment_sincurved_length_max: 10.0
+hole_prob: [0.1, 0.2, 0.2]
+hole_size_max: [4, 2, 7]
+# hole_prob: [0.06, 0.06, 0.06, 0.05, 0.03, 0.02, 0.02, 0.01, 0.0, 0.0, 0.0, 0.0]
+# hole_size_max: [10, 10, 9, 7, 4, 5, 5, 3, 2, 0, 0, 0]
+# plant_height_min: 0.1
+# plant_height_max: 0.2
+weeds: 15
+ghost_objects: true
+weed_types:
+  # - unknown_weed
+  - nettle

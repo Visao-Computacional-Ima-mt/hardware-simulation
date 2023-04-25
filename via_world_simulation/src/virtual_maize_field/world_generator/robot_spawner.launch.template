@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Robot arguments -->
+    <arg name="robot_name" default="via_robot" />
+	<arg name="use_rqt_steering" default="true" />
+    <arg name="enable_rviz" default="false" />
+	<arg name="use_map" default="false" />
+
+    <!-- Override this argument to initialize a specified robot joint at a specified position -->
+    <!-- https://answers.gazebosim.org//question/20105/setting-initial-joint-position/ -->
+    <!-- <arg name="initial_joint_pose" default="-J ARM/Shoulder/X5_9 1.1" /> -->
+    <arg name="initial_joint_pose" default="" />
+
+    <!-- Load robot description for gazebo -->
+    <include file="$(find via_description)/launch/load.launch"/>
+    
+    <!-- Spawn robot in Gazebo -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+    args="-urdf -model $(arg robot_name) -param robot_description -x {{x}} -y -16.05 -z {{z}} -R {{roll}} -P {{pitch}} -Y {{yaw}} $(arg initial_joint_pose)" /> 
+
+    <!-- Spawn the controllers -->
+    <include file="$(find via_control)/launch/control.launch">
+        <arg name="use_rqt_steering" value="$(arg use_rqt_steering)" />
+    </include>
+</launch>
